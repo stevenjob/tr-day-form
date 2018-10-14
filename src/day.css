@@ -1,0 +1,16 @@
+.day-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.day-top > :first-child {
+  margin: 20px;
+}
+
+.day-top > :last-child {
+  margin: 20px;
+}
+
+.day-top > div {
+  margin: 20px;
+}

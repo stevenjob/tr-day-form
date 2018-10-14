@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import App from './app';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const title = process.env.REACT_APP_TITLE;
+const intro = process.env.REACT_APP_INTRO;
+const formString = process.env.REACT_APP_FORM;
+const form = JSON.parse(formString);
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const appConfig =
+  title && intro
+    ? {
+        title,
+        intro,
+        form
+      }
+    : null;
+
+ReactDOM.render(<App config={appConfig} />, document.getElementById('root'));

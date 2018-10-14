@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-top {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.form-top > button {
+  margin-right: 10px;
+}
+
+.form-field {
+  padding: 10px;
+}
+
+.form-field > label {
+  margin-right: 10px;
+}
