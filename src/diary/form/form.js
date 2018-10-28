@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import * as formTypes from './types';
 import Number from './number';
 import Text from './text';
+import Checkbox from './checkbox';
 import './form.css';
 
 const formTypeMap = {
   [formTypes.NUMBER]: Number,
-  [formTypes.TEXT]: Text
+  [formTypes.TEXT]: Text,
+  [formTypes.CHECKBOX]: Checkbox
 };
 
 class Form extends Component {
   static propTypes = {
     config: PropTypes.object,
     data: PropTypes.object,
-    onUpdateIsEditing: PropTypes.func.isRequired,
     disabled: PropTypes.bool
   };
 
@@ -32,22 +33,17 @@ class Form extends Component {
   };
 
   render() {
-    const { config, data, onUpdateIsEditing, editing } = this.props;
+    const { config, data, disabled } = this.props;
 
     return (
-      <div className="form">
-        <div className="form-top">
-          <button onClick={onUpdateIsEditing}>
-            {editing ? 'Back to view' : 'Edit day'}
-          </button>
-        </div>
+      <>
         {Object.keys(config.form).map(key => {
           const configKey = config.form[key];
           const value = data[key] || '';
           const Component = formTypeMap[configKey.type];
           return (
             <Component
-              disabled={!editing}
+              disabled={!disabled}
               title={configKey.title}
               key={key}
               id={key}
@@ -57,7 +53,7 @@ class Form extends Component {
             />
           );
         })}
-      </div>
+      </>
     );
   }
 }

@@ -3,12 +3,16 @@ import PropTypes from 'prop-types';
 import Intro from './intro';
 import Main from './main';
 import * as locationTypes from './locationTypes';
-import './app.css';
+import { css } from 'emotion';
 
 const locations = {
   [locationTypes.INTRO]: Intro,
   [locationTypes.MAIN]: Main
 };
+
+const className = css`
+  background-color: #efefef;
+`;
 
 class App extends Component {
   static propTypes = {
@@ -16,7 +20,7 @@ class App extends Component {
   };
 
   state = {
-    location: locationTypes.INTRO
+    location: locationTypes.MAIN
   };
 
   handleLocationUpdate = newLocation => {
@@ -32,7 +36,7 @@ class App extends Component {
     const Child = locations[this.state.location];
 
     return (
-      <div className="App">
+      <div className={className}>
         <Child onLocationUpdate={this.handleLocationUpdate} config={config} />
       </div>
     );
