@@ -4,7 +4,6 @@ import * as formTypes from './types';
 import Number from './number';
 import Text from './text';
 import Checkbox from './checkbox';
-import './form.css';
 
 const formTypeMap = {
   [formTypes.NUMBER]: Number,

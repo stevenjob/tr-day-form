@@ -20,7 +20,7 @@ const ActionPanel = props => {
         onClick={() => onIsEditingChange(!isEditing)}
         className="material-icons"
       >
-        {isEditing ? 'lock' : 'lock_open'}
+        {isEditing ? 'lock' : 'edit'}
       </i>
     </div>
   );

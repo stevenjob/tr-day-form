@@ -12,6 +12,11 @@ const locations = {
 
 const className = css`
   background-color: #efefef;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;
 
 class App extends Component {
@@ -20,7 +25,7 @@ class App extends Component {
   };
 
   state = {
-    location: locationTypes.MAIN
+    location: locationTypes.INTRO
   };
 
   handleLocationUpdate = newLocation => {

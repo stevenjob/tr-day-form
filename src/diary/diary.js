@@ -3,6 +3,13 @@ import Header from './header';
 import DaySelector, { useDaySelector } from './daySelector';
 import ActionPanel from './actionPanel';
 import Form from './form';
+import { css } from 'emotion';
+
+const className = css`
+  & > div {
+    margin-bottom: 1rem;
+  }
+`;
 
 const Diary = props => {
   const { config, data, onDataUpdate } = props;
@@ -19,10 +26,12 @@ const Diary = props => {
   );
 
   return (
-    <>
-      <Header title={config.title} />
-      <DaySelector date={date} setDate={setDate} />
-      <ActionPanel isEditing={isEditing} onIsEditingChange={setIsEditing} />
+    <div className={className}>
+      <div>
+        <Header title={config.title} />
+        <DaySelector date={date} setDate={setDate} />
+        <ActionPanel isEditing={isEditing} onIsEditingChange={setIsEditing} />
+      </div>
       <Form
         disabled={isEditing}
         config={config}
@@ -37,7 +46,7 @@ const Diary = props => {
           })
         }
       />
-    </>
+    </div>
   );
 };
 
